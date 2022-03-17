@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Todo</string>
+    <string name="search">search</string>
+    <string name="my_app_title">my app</string>
+    <string name="import_camera">import camera</string>
+    <string name="gallery">gallery</string>
+    <string name="slideshow">slide show</string>
+    <string name="send">send</string>
+    <string name="share">share</string>
+    <string name="communicate">communicate</string>
+    <string name="hello_world">hello world</string>
+    <string name="login_activity">Login Activity</string>
 </resources>
