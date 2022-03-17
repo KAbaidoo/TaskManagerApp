@@ -10,4 +10,6 @@
     <string name="communicate">communicate</string>
     <string name="hello_world">hello world</string>
     <string name="login_activity">Login Activity</string>
+    <string name="navigation_drawer_open">Navigation drawer open</string>
+    <string name="navigation_drawer_close">navigation drawer closed</string>
 </resources>
