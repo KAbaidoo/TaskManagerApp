@@ -1,4 +1,4 @@
-package com.example.todo;
+package com.example.todo.views;
 
 import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
 
@@ -7,7 +7,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+
+import com.example.todo.R;
 
 public class LoginActivity extends AppCompatActivity {
 

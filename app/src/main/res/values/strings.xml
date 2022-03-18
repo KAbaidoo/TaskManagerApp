@@ -12,4 +12,7 @@
     <string name="login_activity">Login Activity</string>
     <string name="navigation_drawer_open">Navigation drawer open</string>
     <string name="navigation_drawer_close">navigation drawer closed</string>
+    <string name="empty_not_saved">empty not saved</string>
+    <string name="button_save">Save</string>
+    <string name="hint_word">Word...</string>
 </resources>

@@ -1,0 +1,103 @@
+package com.example.todo.views;
+
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
+
+import com.example.todo.R;
+import com.example.todo.model.Word;
+import com.example.todo.viewmodel.WordViewModel;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+
+public class TasksActivity extends AppCompatActivity {
+    public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
+    private RecyclerView mRecyclerView;
+    private WordListAdapter mAdapter;
+
+    private WordViewModel mWordViewModel;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tasks);
+
+        //        set the theme to default to dark mode
+        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES);
+
+        //Create RecyclerView
+        mRecyclerView = findViewById(R.id.recyclerview);
+        mAdapter = new WordListAdapter(this);
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
+        mWordViewModel.getAllWords().observe(this, words -> mAdapter.setWords(words));
+
+//        handle fab
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(TasksActivity.this, NewWordActivity.class);
+                startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
+            }
+        });
+
+
+
+//handle navigation drawer
+        BottomAppBar bottomAppBar = findViewById(R.id.bottomAppBar);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        NavigationView navigationView = (NavigationView)
+                findViewById(R.id.design_navigation_view);
+        bottomAppBar.setNavigationOnClickListener(v -> drawer.openDrawer(navigationView));
+
+//        handle bottomAppBar menu
+        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                displayToast("Menu item clicked");
+                return true;
+            }
+        });
+    }
+
+    private void displayToast(String string) {
+        Toast.makeText(this, string, Toast.LENGTH_SHORT).show();
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            Word word = new Word(data.getStringExtra(NewWordActivity.EXTRA_REPLY));
+            mWordViewModel.insert(word);
+        } else {
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.empty_not_saved,
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+}

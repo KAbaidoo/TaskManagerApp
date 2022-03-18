@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Todo">
         <activity
-            android:name=".TasksActivity"
+            android:name=".views.NewWordActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".views.TasksActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
