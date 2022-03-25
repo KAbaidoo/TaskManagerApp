@@ -10,19 +10,19 @@ import androidx.room.Query;
 import java.util.List;
 
 @Dao
-public interface WordDao {
+public interface TaskDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(Word word);
+    void insert(Task task);
 
-    @Query("DELETE FROM word_table")
+    @Query("DELETE FROM task_table")
     void deleteAll();
 
-    @Query("SELECT * FROM word_table ORDER BY word ASC")
-    LiveData<List<Word>> getAllWords();
+    @Query("SELECT * FROM task_table ORDER BY task ASC")
+    LiveData<List<Task>> getAllTasks();
 
-    @Query("SELECT * FROM word_table LIMIT 1")
-    Word [] getAnyWord();
+    @Query("SELECT * FROM task_table LIMIT 1")
+    Task[] getAnyTask();
 
     @Delete
-    void deleteWord(Word word);
+    void deleteTask(Task task);
 }

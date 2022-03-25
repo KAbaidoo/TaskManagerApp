@@ -14,32 +14,32 @@ import android.widget.EditText;
 
 import com.example.todo.R;
 
-public class NewWordActivity extends AppCompatActivity {
+public class NewTaskActivity extends AppCompatActivity {
 
     private Button button;
-    private EditText editWordView;
-    public static final String EXTRA_REPLY = "com.example.roomwordssample.controller.REPLY";
+    private EditText editTaskView;
+    public static final String EXTRA_REPLY = "com.example.todo.views.REPLY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_word);
+        setContentView(R.layout.activity_new_task);
 
 //        set the theme to default to dark mode
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES);
 
 
 
-        editWordView = findViewById(R.id.edit_word);
+        editTaskView = findViewById(R.id.edit_task);
         button = findViewById(R.id.button_save);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent replyIntent = new Intent();
-                if (TextUtils.isEmpty(editWordView.getText())) {
+                if (TextUtils.isEmpty(editTaskView.getText())) {
                     setResult(RESULT_CANCELED, replyIntent);
                 } else {
-                    String word = editWordView.getText().toString();
+                    String word = editTaskView.getText().toString();
                     replyIntent.putExtra(EXTRA_REPLY, word);
                     setResult(RESULT_OK, replyIntent);
                 }

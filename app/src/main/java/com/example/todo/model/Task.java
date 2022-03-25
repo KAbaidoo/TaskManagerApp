@@ -7,19 +7,19 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "word_table")
-public class Word {
+@Entity(tableName = "task_table")
+public class Task {
 
     @PrimaryKey
     @NonNull
-    @ColumnInfo(name = "word")
-    private String mWord;
+    @ColumnInfo(name = "task")
+    private String mTask;
 
-    public Word (@NonNull String word) {
-        this.mWord = word;
+    public Task(@NonNull String task) {
+        this.mTask = task;
     }
 
-    public String getWord() {
-        return mWord;
+    public String getTask() {
+        return mTask;
     }
 }

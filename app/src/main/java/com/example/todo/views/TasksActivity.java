@@ -2,16 +2,15 @@ package com.example.todo.views;
 
 import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -19,19 +18,19 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.todo.R;
-import com.example.todo.model.Word;
-import com.example.todo.viewmodel.WordViewModel;
+import com.example.todo.model.Task;
+import com.example.todo.viewmodel.TaskViewModel;
+
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 public class TasksActivity extends AppCompatActivity {
     public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
     private RecyclerView mRecyclerView;
-    private WordListAdapter mAdapter;
+    private TaskListAdapter mAdapter;
 
-    private WordViewModel mWordViewModel;
+    private TaskViewModel mTaskViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +42,12 @@ public class TasksActivity extends AppCompatActivity {
 
         //Create RecyclerView
         mRecyclerView = findViewById(R.id.recyclerview);
-        mAdapter = new WordListAdapter(this);
+        mAdapter = new TaskListAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
-        mWordViewModel.getAllWords().observe(this, words -> mAdapter.setWords(words));
+        mTaskViewModel = ViewModelProviders.of(this).get(TaskViewModel.class);
+        mTaskViewModel.getAllTasks().observe(this, words -> mAdapter.setTasks(words));
 
 //        handle fab
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -56,11 +55,10 @@ public class TasksActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(TasksActivity.this, NewWordActivity.class);
+                Intent intent = new Intent(TasksActivity.this, NewTaskActivity.class);
                 startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
             }
         });
-
 
 
 //handle navigation drawer
@@ -89,8 +87,8 @@ public class TasksActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Word word = new Word(data.getStringExtra(NewWordActivity.EXTRA_REPLY));
-            mWordViewModel.insert(word);
+            Task task = new Task(data.getStringExtra(NewTaskActivity.EXTRA_REPLY));
+            mTaskViewModel.insert(task);
         } else {
             Toast.makeText(
                     getApplicationContext(),

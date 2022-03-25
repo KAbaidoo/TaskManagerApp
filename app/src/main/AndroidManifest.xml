@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Todo">
         <activity
-            android:name=".views.NewWordActivity"
+            android:name=".views.NewTaskActivity"
             android:exported="false" />
         <activity
             android:name=".views.TasksActivity"
