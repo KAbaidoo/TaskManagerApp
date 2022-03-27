@@ -15,4 +15,6 @@
     <string name="empty_not_saved">empty not saved</string>
     <string name="button_save">Save</string>
     <string name="hint_word">Task...</string>
+    <string name="task_title">Task title</string>
+    <string name="task_details_text">Task details text</string>
 </resources>
