@@ -38,23 +38,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@id/imageView_categoryIcon"
-                android:layout_margin="16dp"
+                android:layout_weight="1"
+                android:layout_marginTop="16dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                   android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                   android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                     android:text="@string/task_title" />
 
                 <TextView
                     android:id="@+id/textView_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                     android:text="@string/task_details_text" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+            <TextView
+                android:id="@+id/textView_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:text="7:00AM"/>
+
         </androidx.appcompat.widget.LinearLayoutCompat>
 
 
