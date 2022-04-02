@@ -19,14 +19,14 @@ public class LoginActivity extends AppCompatActivity {
 
 //        set the theme to default to dark mode
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES);
-        startTaskActivity();
+       startTaskActivity();
 
     }
 
     public void startTaskActivity() {
-        Intent intent = new Intent(this, TasksActivity.class);
-        startActivity(intent);
-        finish();
-    }
+       Intent intent = new Intent(this, TasksActivity.class);
+      startActivity(intent);
+       finish();
+   }
 
 }
