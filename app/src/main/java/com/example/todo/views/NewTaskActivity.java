@@ -13,11 +13,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.todo.R;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class NewTaskActivity extends AppCompatActivity {
 
     private Button button;
-    private EditText editTaskView;
+    private TextInputEditText editTaskView;
     public static final String EXTRA_REPLY = "com.example.todo.views.REPLY";
 
     @Override
@@ -30,8 +32,8 @@ public class NewTaskActivity extends AppCompatActivity {
 
 
 
-        editTaskView = findViewById(R.id.edit_task);
-        button = findViewById(R.id.button_save);
+        editTaskView = findViewById(R.id.editText_title);
+        button = findViewById(R.id.button_createTask);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

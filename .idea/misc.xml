@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Kobby/AndroidStudioProjects/TaskManagerApp/app/src/main/res/drawable/background_gradient.xml" value="0.24074074074074073" />
+        <entry key="..\:/Users/Kobby/AndroidStudioProjects/TaskManagerApp/app/src/main/res/drawable/button_gradient.xml" value="0.24074074074074073" />
         <entry key="..\:/Users/Kobby/AndroidStudioProjects/TaskManagerApp/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kobby/AndroidStudioProjects/TaskManagerApp/app/src/main/res/layout/activity_new_task.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kobby/AndroidStudioProjects/TaskManagerApp/app/src/main/res/layout/activity_tasks.xml" value="0.36666666666666664" />

@@ -1,24 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:padding="24dp">
 
-    >
+    <com.google.android.material.textfield.TextInputLayout
 
-    <EditText
-        android:id="@+id/edit_task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_word"
-        android:inputType="textAutoComplete"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/hint_task_title"
+        app:boxBackgroundColor="@color/darkGrey"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:endIconMode="clear_text"
+        app:hintAnimationEnabled="true">
 
-        android:theme="@style/text_view_style" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textAutoComplete" />
 
-    <Button
-        android:id="@+id/button_save"
-        style="@style/button_style"
-        android:text="@string/button_save" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+        android:hint="@string/hint_Description"
+        app:boxBackgroundColor="@color/darkGrey"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:endIconMode="clear_text"
+        app:hintAnimationEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_description"
+            android:layout_width="match_parent"
+            android:gravity="start|top"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:lines="4"
+            android:singleLine="false" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_createTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_gradient"
+        android:text="@string/button_create_task"
+        android:textAppearance="?attr/textAppearanceButton"
+        android:textColor="?attr/colorOnPrimary" />
+
 </LinearLayout>

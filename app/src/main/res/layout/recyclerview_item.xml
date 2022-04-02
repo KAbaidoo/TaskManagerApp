@@ -43,14 +43,14 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView_title"
+                    android:id="@+id/title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                     android:text="@string/task_title" />
 
                 <TextView
-                    android:id="@+id/textView_description"
+                    android:id="@+id/description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
@@ -58,7 +58,7 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
             <TextView
-                android:id="@+id/textView_time"
+                android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"

@@ -20,7 +20,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
         private TaskViewHolder(View itemView) {
             super(itemView);
-            taskItemView = itemView.findViewById(R.id.textView_title);
+            taskItemView = itemView.findViewById(R.id.title);
         }
 
     }
